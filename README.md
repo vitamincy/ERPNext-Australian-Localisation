@@ -100,21 +100,21 @@ For every suppliers where ABA file needs to be generated, the below information 
 <br><br>
 <img width="1395" height="787" alt="image" src="https://github.com/user-attachments/assets/032a9b59-bc85-4aef-944a-b36a471f4aea" />
 <br><br>
-Payment Proposal Functionality: This functionality is equivalent to Payment Run process to generate bulk payments. This functionality allows the user to filter the documents based on Due / Posting Date & the document created User.
+<ins>Payment Proposal Functionality</ins>: This functionality is equivalent to Payment Run process to generate bulk payments. This functionality allows the user to filter the documents based on Due / Posting Date & the document created User.
 <br><br>
-<img width="1400" height="853" alt="image" src="https://github.com/user-attachments/assets/dddf8465-5a69-47fe-b878-caf31bab383a" />
+<img width="1670" height="816" alt="image" src="https://github.com/user-attachments/assets/80bf62b1-7c00-4b48-83aa-84fcd1d761b5" />
 <br><br>
-<img width="1349" height="897" alt="image" src="https://github.com/user-attachments/assets/1590fd44-c7d1-4bd8-9b73-67fa784cd9ee" />
+<img width="1512" height="873" alt="image" src="https://github.com/user-attachments/assets/dc3033df-3aa1-48f3-9b07-534a5b4a48cd" />
 <br><br>
 Alternate option of creating a Payment Batch without using Payment Proposal functionality: Using this functionality, the Payment Batch is manually created and the Payments which are in Draft status can be pulled into the Payment Batch for ABA file generation.
 <br><br>
-<img width="1375" height="344" alt="image" src="https://github.com/user-attachments/assets/a7aad0be-aaf3-40b2-bf32-0645c5cfbc84" />
+<img width="1479" height="400" alt="image" src="https://github.com/user-attachments/assets/b2f7deea-5585-4c01-9fd8-065bac2065d8" />
 <br><br>
-<img width="1346" height="849" alt="image" src="https://github.com/user-attachments/assets/7de041ca-9a98-4894-ae55-dce4ba51e005" />
+<img width="1540" height="869" alt="image" src="https://github.com/user-attachments/assets/a9626cf1-8826-4f87-85d6-e26d4e68befa" />
 <br><br>
 ABA File generation functionality from the Payment Batch screen:
 <br><br>
-<img width="1461" height="840" alt="image" src="https://github.com/user-attachments/assets/ba0eab43-769d-4389-8863-e232b7449474" />
+<img width="1520" height="882" alt="image" src="https://github.com/user-attachments/assets/7ca8c0ec-305a-44e1-936c-1737582bb392" />
 <br><br>
 
 ### License
