@@ -22,8 +22,7 @@ cd $PATH_TO_YOUR_BENCH
 bench get-app https://github.com/Arus-Info/ERPNext-Australian-Localisation.git --branch version-15
 bench install-app erpnext_australian_localisation
 ```
-
-<img width="1325" height="889" alt="image" src="https://github.com/user-attachments/assets/920d9787-9af0-4345-b79a-a5759104d7d1" />
+<img width="1620" height="870" alt="image" src="https://github.com/user-attachments/assets/c4c9056b-3ca9-4933-ba13-9e63b2547d40" />
 
 ### Features
 
@@ -58,19 +57,27 @@ For additional / new Australian companies in the existing system
 <br><br>
 Australian Localiation Workspace - Carries the basic instructions & the functionalities offered
 <br><br>
-<img width="1322" height="900" alt="image" src="https://github.com/user-attachments/assets/a458a04d-d954-4a3d-92a6-f4edebafd619" />
+<img width="1612" height="869" alt="image" src="https://github.com/user-attachments/assets/4fbb1c1e-94fe-4d27-8b11-130cd90c3b87" />
 <br><br>
-<img width="1342" height="867" alt="image" src="https://github.com/user-attachments/assets/c3618678-4b1c-443d-ab6c-59d84e390e61" />
+<img width="1618" height="865" alt="image" src="https://github.com/user-attachments/assets/34046ce9-6ba9-4c9b-bb6e-a3632ce3184f" />
 <br><br>
 <ins>AU Localisation Settings:</ins> The frequency of BAS report submission can be changed from Monthly to Quarterly only when there is no open BAS report is available in the system. Also the BAS Reporting Method (Full/Simpler) is defined on the below page.
 <br><br>
-<img width="1332" height="360" alt="image" src="https://github.com/user-attachments/assets/6cab65ea-c20b-4544-bec2-dccf386c708a" />
+<img width="1636" height="499" alt="image" src="https://github.com/user-attachments/assets/94de5c70-d96e-4e44-9f27-a3a2cfafb9cb" />
 <br><br>
 In case of Simpler BAS Reporting method to be used, the Account setup for BAS labels are available in Simpler BAS Report Setup.
 <br><br>
-img
+<img width="1719" height="676" alt="image" src="https://github.com/user-attachments/assets/f23eba75-4b09-4696-84e2-5df64ce21545" />
 <br><br>
 <ins>Glimpse of the BAS Report:</ins>
+<br><br>
+
+**Simpler BAS Report**
+<br><br>
+<img width="1639" height="832" alt="image" src="https://github.com/user-attachments/assets/6944f69a-0c48-4ad5-83bc-f74796afc6c0" />
+<br><br>
+
+**Full BAS Report**
 <br><br>
 <img width="1344" height="889" alt="image" src="https://github.com/user-attachments/assets/6d17466e-3175-4f65-a91a-6c200cbaefa8" />
 <br><br>
@@ -78,9 +85,9 @@ img
 <br><br>
 Printable format of the BAS Report - Please print in Landspcape orientation for better readability
 <br><br>
-<img width="1373" height="884" alt="image" src="https://github.com/user-attachments/assets/3383ce0a-ab45-49b9-98f7-c7ba6f58aea7" />
+<img width="1648" height="858" alt="image" src="https://github.com/user-attachments/assets/0caef4f3-91e2-4ee6-9ff6-457b4f00ec5a" />
 <br><br>
-<img width="1322" height="955" alt="image" src="https://github.com/user-attachments/assets/8949e8de-a925-4793-a5f4-952fa983c0c6" />
+<img width="1231" height="731" alt="image" src="https://github.com/user-attachments/assets/d5f8dedd-a621-48cb-b74a-386f6e048d8e" />
 <br><br>
 <ins>Setup for ABA file generation:</ins>
 <br><br>
@@ -93,7 +100,7 @@ For every suppliers where ABA file needs to be generated, the below information 
 <br><br>
 <img width="1395" height="787" alt="image" src="https://github.com/user-attachments/assets/032a9b59-bc85-4aef-944a-b36a471f4aea" />
 <br><br>
-Payment Proposal Functionality: This functionality is equivalent to Payment Run process to generate bulk payments. This functionality allows the user to filter the Invoices based on Due Date & the Invoice created User.
+Payment Proposal Functionality: This functionality is equivalent to Payment Run process to generate bulk payments. This functionality allows the user to filter the documents based on Due / Posting Date & the document created User.
 <br><br>
 <img width="1400" height="853" alt="image" src="https://github.com/user-attachments/assets/dddf8465-5a69-47fe-b878-caf31bab383a" />
 <br><br>
