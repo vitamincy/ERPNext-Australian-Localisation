@@ -5,15 +5,6 @@ import requests
 from frappe import _
 
 
-def clear_abn_fields(doc):
-	doc.entity_name = ""
-	doc.business_name = ""
-	doc.abn_status = ""
-	doc.abn_effective_from = ""
-	doc.address_postcode = ""
-	doc.address_state = ""
-
-
 def fetch_and_update_abn(doctype, docname):
 	doc = frappe.get_doc(doctype, docname)
 
@@ -32,8 +23,16 @@ def fetch_and_update_abn(doctype, docname):
 
 	# Invalid / partial ABN → clear & exit
 	if len(abn) != 11:
-		clear_abn_fields(doc)
-		doc.db.update()
+		doc.update(
+			{
+				"entity_name": None,
+				"business_name": None,
+				"abn_status": None,
+				"abn_effective_from": None,
+				"address_postcode": None,
+				"address_state": None,
+			}
+		)
 		return
 
 		# api call
@@ -71,11 +70,6 @@ def fetch_and_update_abn(doctype, docname):
 	# GUID problem → show error
 	if "guid" in message:
 		frappe.throw(_("The entered GUID is invalid. Unable to fetch ABN informations"))
-		# ABN problem → clear silently
-	if message:
-		clear_abn_fields(doc)
-		doc.db_update()
-		return
 
 	# save values into document
 	doc.entity_name = data.get("EntityName") or ""
