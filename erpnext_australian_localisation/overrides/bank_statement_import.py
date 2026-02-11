@@ -13,14 +13,14 @@ def after_save(doc, methods=None):
 	if not doc.bs_import_file:
 		return
 
-	bank_statement_format = frappe.db.get_value("Bank Account", doc.bank_account, "bank_statement_format")
+	bank_statement_format, currency = frappe.db.get_value(
+		"Bank Account", doc.bank_account, ["bank_statement_format", "currency"]
+	)
 
 	if not bank_statement_format:
 		frappe.throw(_("Please set Bank Statement Format in Bank Account"))
 
 	format_doc = frappe.get_doc("AU Bank Statement Format", bank_statement_format)
-
-	currency = frappe.db.get_value("Bank Account", doc.bank_account, "currency")
 
 	if not currency:
 		frappe.throw(_("Currency is missing in Bank Account"))
@@ -49,7 +49,7 @@ def after_save(doc, methods=None):
 
 # ------------------------------------------------------template------------------------------------------------------------------------------------#
 @frappe.whitelist()
-def download_uploaded_csv_template(bank_account):
+def download_uploaded_csv_template(bank_account: str) -> None:
 	if not bank_account:
 		frappe.throw(_("Please select Bank Account"))
 
@@ -58,15 +58,17 @@ def download_uploaded_csv_template(bank_account):
 	if not bank_statement_format:
 		frappe.throw(_("Please set Bank Statement Format in Bank Account"))
 
-	format_doc = frappe.get_doc("AU Bank Statement Format", bank_statement_format)
+	format_doc = frappe.db.get_value(
+		"AU Bank Statement Format", bank_statement_format, ["name", "sample_data"], as_dict=1
+	)
 
 	if not format_doc.sample_data:
 		frappe.throw(_("CSV Template not configured for this Bank Statement Format"))
 
-	return {
-		"filename": f"{bank_statement_format}.csv",
-		"filecontent": format_doc.sample_data,
-	}
+	# Set download response
+	frappe.response["filename"] = f"{bank_statement_format}.csv"
+	frappe.response["filecontent"] = format_doc.sample_data
+	frappe.response["type"] = "download"
 
 
 # -----------------------------------------------------------attach field validation in BSI----------------------------------------------------------
@@ -208,8 +210,10 @@ def normalize_date(value, row_no=None):
 
 
 def validate_account_and_branch(reader, format_doc, bank_account):
-	bank_acc_no = frappe.db.get_value("Bank Account", bank_account, "bank_account_no")
-	branch_code = frappe.db.get_value("Bank Account", bank_account, "branch_code")
+	bank_acc_no, branch_code = frappe.db.get_value(
+		"Bank Account", bank_account, ["bank_account_no", "branch_code"]
+	)
+
 	# this is for csv header name(account number) there or not
 	acc_col = format_doc.acc_no_col
 	# if header not there exits silently
@@ -249,7 +253,7 @@ def validate_account_and_branch(reader, format_doc, bank_account):
 			if csv_val != expected:
 				frappe.throw(
 					_(
-						"Account Number mismatch at row {0}.<br><b>Bank Account Number :</b> {1}<br><b>CSV Value:</b> {2}"
+						"Account Number mismatch at row {0}.<br><b>Bank Account Number in ERPNext:</b> {1}<br><b>Bank Account Number in Statement:</b> {2}"
 					).format(row_no, expected, raw_val)
 				)
 		# NAB / Westpac → only account number
@@ -259,7 +263,7 @@ def validate_account_and_branch(reader, format_doc, bank_account):
 			if csv_val != expected:
 				frappe.throw(
 					_(
-						"Account Number mismatch at row {0}.<br><b>Bank Account Number :</b> {1}<br><b>CSV Value:</b> {2}"
+						"Account Number mismatch at row {0}.<br><b>Bank Account Number in ERPNext:</b> {1}<br><b>Bank Account Number in Statement:</b> {2}"
 					).format(row_no, expected, raw_val)
 				)
 
