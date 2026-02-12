@@ -1,5 +1,6 @@
 frappe.ui.form.on("Bank Statement Import", {
 	refresh(frm) {
+		// to trigger any form events trigger is used
 		frm.trigger("toggle_import_fields");
 	},
 	bs_download_template(frm) {
@@ -7,6 +8,7 @@ frappe.ui.form.on("Bank Statement Import", {
 			frappe.msgprint(__("Please select Bank Account first"));
 			return;
 		}
+		// this is an api method for downloading sample template
 		open_url_post(
 			"/api/method/erpnext_australian_localisation.overrides.bank_statement_import.download_uploaded_csv_template",
 			{
@@ -16,6 +18,7 @@ frappe.ui.form.on("Bank Statement Import", {
 	},
 
 	toggle_import_fields(frm) {
+		// check if form is new
 		//  hide custom field which stores file
 		if (frm.is_new()) {
 			frm.set_df_property("bs_import_file", "hidden", 1);
